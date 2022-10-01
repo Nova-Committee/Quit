@@ -13,22 +13,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import javax.annotation.Nullable;
-
 import static committee.nova.quit.util.Utilities.isAnyKeyDown;
 
 @Mixin(Minecraft.class)
 public abstract class MixinMinecraft {
     @Shadow
-    @Nullable
-    public Screen screen;
-
-    @Shadow
     @Final
     private Window window;
 
     @Shadow
-    public abstract void setScreen(@org.jetbrains.annotations.Nullable Screen p_91153_);
+    public abstract void setScreen(Screen screen);
 
     @Inject(method = "runTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;stop()V"), cancellable = true)
     public void onRunTick(boolean b, CallbackInfo ci) {
