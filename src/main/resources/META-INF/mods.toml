@@ -1,0 +1,9 @@
+modLoader = "javafml"
+loaderVersion = "[38,)"
+license = "GNU AGPL 3.0"
+[[mods]]
+modId = "quit"
+version = "${file.jarVersion}"
+displayName = "Quit"
+authors = "Tapio"
+description = "Confirm before quiting"
