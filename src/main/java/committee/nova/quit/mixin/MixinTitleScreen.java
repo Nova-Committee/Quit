@@ -1,7 +1,7 @@
 package committee.nova.quit.mixin;
 
 import committee.nova.quit.client.ClientInit;
-import committee.nova.quit.screen.QuitConfirmScreen;
+import committee.nova.quit.util.Utilities;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
@@ -33,11 +33,7 @@ public abstract class MixinTitleScreen extends Screen {
             if (mc == null) return;
             if (isAnyKeyDown(ClientInit.fastQuit.getKey().getValue(), ClientInit.bossKey.getKey().getValue()))
                 mc.stop();
-            mc.setScreen(new QuitConfirmScreen(yes -> {
-                if (yes) {
-                    mc.stop();
-                } else mc.popGuiLayer();
-            }, new TranslatableComponent("menu.quit.quitGame")));
+            mc.setScreen(Utilities.quitGame.apply(mc));
         }));
     }
 }

@@ -1,13 +1,11 @@
 package committee.nova.quit.mixin;
 
-import com.mojang.realmsclient.RealmsMainScreen;
 import committee.nova.quit.client.ClientInit;
-import committee.nova.quit.screen.QuitConfirmScreen;
-import net.minecraft.client.Minecraft;
+import committee.nova.quit.util.Utilities;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.screens.*;
-import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
+import net.minecraft.client.gui.screens.PauseScreen;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import static committee.nova.quit.util.Utilities.isAnyKeyDown;
+import static committee.nova.quit.util.Utilities.quitToTitle;
 
 @Mixin(PauseScreen.class)
 public abstract class MixinPauseScreen extends Screen {
@@ -41,22 +40,8 @@ public abstract class MixinPauseScreen extends Screen {
                 quitToTitle(mc, button);
                 return;
             }
-            mc.setScreen(new QuitConfirmScreen(yes -> {
-                if (yes) {
-                    quitToTitle(mc, button);
-                } else mc.setScreen(new PauseScreen(true));
-            }, new TranslatableComponent("menu.quit.quitLevel")));
+            mc.setScreen(Utilities.quit2Title.apply(mc, button));
         }));
     }
 
-    private void quitToTitle(Minecraft mc, Button button) {
-        boolean flag = mc.isLocalServer();
-        boolean flag1 = mc.isConnectedToRealms();
-        button.active = false;
-        final var level = mc.level;
-        if (level != null) level.disconnect();
-        mc.clearLevel(flag ? new GenericDirtMessageScreen(new TranslatableComponent("menu.savingLevel")) : new ProgressScreen(true));
-        final var titleScreen = new TitleScreen();
-        mc.setScreen(flag ? titleScreen : (flag1 ? new RealmsMainScreen(titleScreen) : new JoinMultiplayerScreen(titleScreen)));
-    }
 }
