@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.7.11",
+  "package": "committee.nova.quit.mixin",
+  "refmap": "mixins.quit.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinGuiIngameMenu",
+    "MixinGuiMainMenu",
+    "MixinLoadingScreenRenderer",
+    "MixinMinecraft"
+  ]
+}

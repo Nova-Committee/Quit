@@ -1,16 +1,16 @@
-package committee.nova.examplemod
+package committee.nova.quit
 
-import committee.nova.examplemod.proxies.CommonProxy
+import committee.nova.quit.proxies.CommonProxy
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent}
 import cpw.mods.fml.common.{Mod, SidedProxy}
 import org.apache.logging.log4j.LogManager
 
-@Mod(modid = ExampleMod.MODID, useMetadata = true, modLanguage = "scala")
-object ExampleMod {
+@Mod(modid = Quit.MODID, useMetadata = true, modLanguage = "scala")
+object Quit {
   final val LOGGER = LogManager.getLogger
-  final val MODID = "examplemod"
-  final val packagePrefix = s"committee.nova.$MODID.proxies."
+  final val MODID = "quit"
+  final val packagePrefix = "committee.nova." + MODID + ".proxies."
 
   @SidedProxy(serverSide = packagePrefix + "CommonProxy", clientSide = packagePrefix + "ClientProxy")
   var proxy: CommonProxy = _
