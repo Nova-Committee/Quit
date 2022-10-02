@@ -11,5 +11,5 @@ class ClientProxy extends CommonProxy {
     KeyInit.init()
   }
 
-  override def postInit(event: FMLPostInitializationEvent): Unit = super.postInit(event);
+  override def postInit(event: FMLPostInitializationEvent): Unit = super.postInit(event)
 }
