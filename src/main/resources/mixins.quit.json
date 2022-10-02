@@ -1,0 +1,13 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "committee.nova.quit.mixin",
+  "refmap": "refmap.quit.json",
+  "mixins": [],
+  "client": [
+    "MixinGuiIngameMenu",
+    "MixinGuiMainMenu",
+    "MixinLoadingScreenRenderer",
+    "MixinMinecraft"
+  ],
+  "server": []
+}
