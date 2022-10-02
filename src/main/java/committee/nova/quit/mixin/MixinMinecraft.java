@@ -24,7 +24,10 @@ public abstract class MixinMinecraft {
 
     @Redirect(method = "runGameLoop", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;shutdown()V"))
     public void onRunGameLoop(Minecraft instance) {
-        if (Utilities$.MODULE$.direct()) shutdown();
+        if (Utilities$.MODULE$.direct()) {
+            shutdown();
+            return;
+        }
         final GuiScreen current = currentScreen;
         displayGuiScreen(new GuiQuit(new GuiYesNoCallback() {
             @Override
