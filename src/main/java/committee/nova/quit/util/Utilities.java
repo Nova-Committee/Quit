@@ -30,8 +30,8 @@ public class Utilities {
     }, new TranslatableComponent("menu.quit.quitGame"));
 
     public static void quitToTitle(Minecraft mc, Button button) {
-        boolean flag = mc.isLocalServer();
-        boolean flag1 = mc.isConnectedToRealms();
+        final var flag = mc.isLocalServer();
+        final var flag1 = mc.isConnectedToRealms();
         button.active = false;
         final var level = mc.level;
         if (level != null) level.disconnect();
