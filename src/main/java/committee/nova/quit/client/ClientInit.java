@@ -10,8 +10,8 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientInit {
-    public static final KeyMapping fastQuit = new KeyMapping("key.quit.fastQuit", KeyConflictContext.UNIVERSAL, InputConstants.Type.KEYSYM, InputConstants.KEY_Q, "key.categories.quit");
-    public static final KeyMapping bossKey = new KeyMapping("key.quit.bossKey", KeyConflictContext.UNIVERSAL, InputConstants.Type.KEYSYM, InputConstants.KEY_B, "key.categories.quit");
+    public static final KeyMapping fastQuit = new KeyMapping("key.quit.fastQuit", KeyConflictContext.GUI, InputConstants.Type.KEYSYM, InputConstants.KEY_Q, "key.categories.quit");
+    public static final KeyMapping bossKey = new KeyMapping("key.quit.bossKey", KeyConflictContext.GUI, InputConstants.Type.KEYSYM, InputConstants.KEY_B, "key.categories.quit");
 
     @SubscribeEvent
     public static void init(final RegisterKeyMappingsEvent event) {
