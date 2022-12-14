@@ -28,12 +28,12 @@ public abstract class MixinTitleScreen extends Screen {
             ))
     public Element onInit(TitleScreen instance, Element guiEventListener) {
         final int l = this.height / 4 + 48;
-        return this.addDrawableChild(new ButtonWidget(this.width / 2 + 2, l + 72 + 12, 98, 20, Text.translatable("menu.quit"), (button) -> {
+        return this.addDrawableChild(ButtonWidget.builder(Text.translatable("menu.quit"), (button) -> {
             final var mc = this.client;
             if (mc == null) return;
             if (isAnyKeyDown(KeyBindingHelper.getBoundKeyOf(Quit.bossKey()).getCode(), KeyBindingHelper.getBoundKeyOf(Quit.fastQuit()).getCode()))
-                mc.stop();
+                mc.scheduleStop();
             mc.setScreen(Utilities.quitGame.apply(mc));
-        }));
+        }).dimensions(this.width / 2 + 2, l + 72 + 12, 98, 20).build());
     }
 }
