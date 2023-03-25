@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "quit",
+    "name": "Quit",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "1.8.9",
+    "url": "https://github.com/Nova-Committee/Quit/",
+    "updateUrl": "",
+    "authorList": [
+      "Tapio"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

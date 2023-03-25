@@ -1,0 +1,5 @@
+gui.quitGame=退出遊戲？
+gui.quitLevel=回到主選單？
+key.categories.quit=Quit
+key.quit.fastQuit=快速退出
+key.quit.bossKey=老闆鍵

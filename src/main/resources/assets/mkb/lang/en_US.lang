@@ -1,0 +1,5 @@
+gui.quitGame=Quit game?
+gui.quitLevel=Quit to title?
+key.categories.quit=Quit
+key.quit.fastQuit=Fast Quit
+key.quit.bossKey=Boss Key
