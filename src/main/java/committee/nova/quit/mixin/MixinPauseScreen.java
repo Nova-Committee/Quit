@@ -7,9 +7,7 @@ import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -17,14 +15,6 @@ import static committee.nova.quit.util.Utilities.isAnyKeyDown;
 
 @Mixin(PauseScreen.class)
 public abstract class MixinPauseScreen extends Screen {
-    @Shadow
-    @Final
-    private static Component RETURN_TO_MENU;
-
-    @Shadow
-    @Final
-    private static Component RETURN_TO_GAME;
-
     protected MixinPauseScreen(Component title) {
         super(title);
     }

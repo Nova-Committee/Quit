@@ -1,6 +1,5 @@
 package committee.nova.quit.mixin;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import committee.nova.quit.client.ClientInit;
 import committee.nova.quit.util.Utilities;
 import net.minecraft.client.gui.components.Button;
@@ -9,7 +8,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -17,9 +15,6 @@ import static committee.nova.quit.util.Utilities.isAnyKeyDown;
 
 @Mixin(TitleScreen.class)
 public abstract class MixinTitleScreen extends Screen {
-    @Shadow
-    public abstract void render(PoseStack p_96739_, int p_96740_, int p_96741_, float p_96742_);
-
     protected MixinTitleScreen(Component title) {
         super(title);
     }
