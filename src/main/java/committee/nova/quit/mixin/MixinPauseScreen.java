@@ -39,7 +39,7 @@ public abstract class MixinPauseScreen extends Screen {
         final var mc = this.minecraft;
         assert mc != null;
         final var component = mc.isLocalServer() ? Component.translatable("menu.returnToMenu") : Component.translatable("menu.disconnect");
-        return (T) this.addRenderableWidget(new Button(this.width / 2 - 102, this.height / 4 + 120 - 16, 204, 20, component, (b) -> {
+        return (T) this.addRenderableWidget(new Button(button.x, button.y, button.getWidth(), button.getHeight(), component, (b) -> {
             if (isAnyKeyDown(ClientInit.bossKey.getKey().getValue())) {
                 mc.stop();
                 return;
