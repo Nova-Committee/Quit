@@ -61,10 +61,10 @@ public class Quit {
                     }
                 });
             };
-            LOGGER.info("LWJGL3 (CleanRoom) found.");
+            LOGGER.info("LWJGL3 (Cleanroom) found.");
             shouldContinue = false;
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException e) {
-            LOGGER.info("LWJGL3 (CleanRoom) not found.");
+            LOGGER.info("LWJGL3 (Cleanroom) not found.");
         }
         if (shouldContinue) try {
             MethodHandles.Lookup lookup = MethodHandles.lookup();

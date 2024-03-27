@@ -1,7 +1,7 @@
 {
   "compatibilityLevel": "JAVA_8",
   "package": "committee.nova.quit.mixin",
-  "refmap": "quit.mixins.refmap.json",
+  "refmap": "mixins.quit.refmap.json",
   "client": [
     "MixinGuiIngameMenu",
     "MixinGuiMainMenu",
